@@ -7,6 +7,7 @@ export function NavBar(){
             <ul>
                 <li><a><Link to='/login'>Log In</Link></a></li>
                 <li><a><Link to='/signup'>Sign Up</Link></a></li>
+                <li><a><Link to='/section'>Pages</Link></a></li>
             </ul>
         </>
     );

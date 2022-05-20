@@ -1,0 +1,9 @@
+.aside{
+    background-color: #1c1f25;
+    width: 5%;
+    height: 100vh;
+}
+
+.asideItems{
+    display: inline-block;
+}
