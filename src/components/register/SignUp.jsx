@@ -11,6 +11,7 @@ export function SignUp(){
     const email = useRef()
     const password = useRef()
     const name = useRef()
+    const role = useRef()
 
     const roles =[
         {value: 'admin', label: 'Admin'},
@@ -23,7 +24,8 @@ export function SignUp(){
       post("/api/auth/signup",{
         name:name.current.value,
         email: email.current.value,
-        password:password.current.value
+        password:password.current.value,
+        role: role.current.value
       })
       .then(({data})=>{
         if(data.error){
@@ -53,26 +55,7 @@ export function SignUp(){
                     </div>
                     <div>
                         <h2>Set yor role</h2>
-                        <Select
-                        options={roles}
-                        theme={(theme) => ({
-                        ...theme,
-                        borderRadius: 20,
-                        colors: {
-                            ...theme.colors,
-                            primary25: '#1c1f25',
-                            primary: '#61dafb',
-                        },
-                        })}
-                        styles={{
-                            option: (base) => ({
-                              ...base,
-                              borderRadius: `0`,
-                              height: '100%',
-                              color: 'black'
-                            }),
-                          }}
-                    />
+                        <input type={'text'} placeholder={'Rol'} ref={role} ></input>
                     </div>
                     <div>
                         <h2>Password</h2>

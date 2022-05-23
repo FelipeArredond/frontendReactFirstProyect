@@ -7,6 +7,7 @@ import { Section } from './components/section/SectionComponent';
 import { authContext } from './Context/AuthContext'
 import { useEffect, useContext } from 'react';
 import { postWithToken } from './api';
+import { MainPage } from './components/mainpage/MainPage';
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
             <Route path='/login' element={<LogIn></LogIn>} />
             <Route path='/signup' element={<SignUp></SignUp>} />
             <Route path='/section' element={<Section></Section>} />
+            <Route path='/home' element={<MainPage></MainPage>}/>
           </Routes>
         </>
   );

@@ -30,7 +30,7 @@ export function LogIn(){
                 name:user.name,
                 logged:true
             })
-            navigate("/",{
+            navigate("/home",{
                 replace:true
             })
         })

@@ -12,7 +12,6 @@ export function NavBar(){
                 {!context.auth.logged&&<li><Link to="/login">Login</Link></li>}
                 {!context.auth.logged&&<li><Link to="/signup">Sign up</Link></li>}
                 {context.auth.logged&&<li><Link to="/"><LogOut/></Link></li>}
-                {context.auth.logged&&<li>{context.auth.name}</li>}
             </ul>
         </div>
     );
