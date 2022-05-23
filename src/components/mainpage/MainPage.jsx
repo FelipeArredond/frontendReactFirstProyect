@@ -1,25 +1,47 @@
 import './MainPage.css'
 import { authContext } from "../../Context/AuthContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import { JobItem } from '../jobpost/JobPost';
 
 export function MainPage(){
+
+    const [jobsList, setJobsList] = useState([])
 
     const context = useContext(authContext)
 
     const getJobsData = async () =>{
-        const data =  await fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/jobs", {
+        const token = localStorage.getItem("token")
+        const response = await fetch("https://backendnodejstzuzulcode.uw.r.appspot.com/api/jobs", {
             method: 'GET',
+            headers:{
+                "Content-Type":"application/json",
+                "Authorization":"Bearer "+ token
+            }
         })
-        .then(response => response.json())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));
+        const data = await response.json()
+        setJobsList(data)
     }
+
+    useEffect(() => {
+        getJobsData()
+    },[])
+
+    const mapJobsList = jobsList.map(job => {
+        return(
+            <JobItem tittle={job.title}
+            country={job.location.country}
+            province={job.location.province}
+            description={job.description}
+            salary={job.salary}
+            ></JobItem>
+        )
+    })
 
     return(
         <>
             <h1 className='welcomeUser'>{context.auth.logged&&'¡Bienvenido ' + context.auth.name + '!'}</h1>
-            <h1 className='welcomeUser'>{context.auth.role&&'Tu rol es: ' + context.auth.role}</h1>
-            <button onClick={getJobsData} >get jobs data</button>
+            {context.auth.role==='applicant'&&mapJobsList}
+            {context.auth.role==='employer'&&<h2>Employer option</h2>}
         </>
     );
 }

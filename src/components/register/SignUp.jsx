@@ -13,12 +13,6 @@ export function SignUp(){
     const name = useRef()
     const role = useRef()
 
-    const roles =[
-        {value: 'admin', label: 'Admin'},
-        {value: 'employer', label: 'Employer'},
-        {value: 'applicant', label: 'Applicant'}
-    ]
-
     const signup = (event) =>{
       event.preventDefault()
       post("/api/auth/signup",{
@@ -35,6 +29,7 @@ export function SignUp(){
           context.setAuth({
             id:data.user.id,
             name:data.user.name,
+            role:data.user.role,
             logged:true
           })
         }

@@ -1,0 +1,29 @@
+.jobItem{
+    margin: 30px 30px;
+    height: 100;
+    background-color: #1c1f25;
+    border-radius: 20px;
+}
+
+.jobContent{
+    margin: 10px 10px;
+}
+
+.jobTittle{
+
+    color: white;
+    font-size: 30px;
+}
+
+.jobLocation{
+    color: white;
+}
+
+.jobDescription{
+    color: white;
+}
+
+.jobSalary{
+    color: white;
+    font-size: 20px;
+}

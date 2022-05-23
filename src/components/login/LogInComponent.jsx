@@ -28,6 +28,7 @@ export function LogIn(){
             context.setAuth({
                 id:user.id,
                 name:user.name,
+                role:user.role,
                 logged:true
             })
             navigate("/home",{
