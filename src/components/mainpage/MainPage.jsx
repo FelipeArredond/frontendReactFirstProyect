@@ -2,6 +2,7 @@ import './MainPage.css'
 import { authContext } from "../../Context/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { JobItem } from '../jobpost/JobPost';
+import { EmployerMenu } from '../employer/EmployerMenu';
 
 export function MainPage(){
 
@@ -33,6 +34,7 @@ export function MainPage(){
             province={job.location.province}
             description={job.description}
             salary={job.salary}
+            id={job._id}
             ></JobItem>
         )
     })
@@ -41,7 +43,7 @@ export function MainPage(){
         <>
             <h1 className='welcomeUser'>{context.auth.logged&&'¡Bienvenido ' + context.auth.name + '!'}</h1>
             {context.auth.role==='applicant'&&mapJobsList}
-            {context.auth.role==='employer'&&<h2>Employer option</h2>}
+            {context.auth.role==='employer'&&<EmployerMenu></EmployerMenu>}
         </>
     );
 }

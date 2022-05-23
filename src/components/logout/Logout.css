@@ -1,0 +1,7 @@
+.logoutButton{
+    color: white;
+}
+
+.logoutButton:hover{
+    color: black;
+}

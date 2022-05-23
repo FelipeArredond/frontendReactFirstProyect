@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { authContext } from '../../Context/AuthContext'
+import './Logout.css'
 
 export default function LogOut() {
 
@@ -14,7 +15,7 @@ export default function LogOut() {
         })
     }
     return (
-        <a onClick={handleLogOut}>
+        <a onClick={handleLogOut} className={'logoutButton'}>
             Cerrar sesión
         </a>
     )
